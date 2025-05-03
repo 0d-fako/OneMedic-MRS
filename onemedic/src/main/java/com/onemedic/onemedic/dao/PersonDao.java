@@ -1,5 +1,9 @@
 package com.onemedic.onemedic.dao;
 
+import com.onemedic.onemedic.model.Person;
+
+import java.util.UUID;
+
 public interface PersonDao {
     int insertPerson(UUID id, Person person);
 
