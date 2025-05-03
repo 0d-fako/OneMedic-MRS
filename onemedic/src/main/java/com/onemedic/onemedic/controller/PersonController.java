@@ -1,5 +1,7 @@
 package com.onemedic.onemedic.controller;
 
+
+@RestController
 public class PersonController {
     private final PersonService personService;
 
@@ -8,6 +10,8 @@ public class PersonController {
         this.personService = personService;
     }
 
+
+    @PostMapping
     public void addPerson(Person person) {
         personService.addPerson(person);
     }
