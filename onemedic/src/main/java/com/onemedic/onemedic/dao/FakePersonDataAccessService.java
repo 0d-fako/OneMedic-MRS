@@ -1,5 +1,6 @@
 package com.onemedic.onemedic.dao;
 
+@Repository("fakeDao")
 public class FakePersonDataAccessService implements PersonDao {
     private static List<Person> DB = new ArrayList<>();
 
