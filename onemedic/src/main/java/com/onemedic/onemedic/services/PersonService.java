@@ -10,14 +10,13 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-import static com.fasterxml.jackson.databind.jsonFormatVisitors.JsonValueFormat.UUID;
 
 @Service
 public class PersonService {
     private final PersonDao personDao;
 
     @Autowired
-    public PersonService ( @Qualifier("fakeDao") PersonDao personDao){
+    public PersonService ( @Qualifier("postgres") PersonDao personDao){
         this.personDao = personDao;
     }
     public int addPerson (Person person){

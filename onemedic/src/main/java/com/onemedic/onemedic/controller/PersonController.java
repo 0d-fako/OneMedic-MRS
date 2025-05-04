@@ -3,10 +3,12 @@ package com.onemedic.onemedic.controller;
 
 import com.onemedic.onemedic.model.Person;
 import com.onemedic.onemedic.services.PersonService;
-import groovy.cli.UnparsedField;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.UUID;
 
@@ -23,7 +25,7 @@ public class PersonController {
 
 
     @PostMapping
-    public void addPerson(@RequestBody Person person) {
+    public void addPerson(@Valid @NotNull @RequestBody Person person) {
         personService.addPerson(person);
     }
 
