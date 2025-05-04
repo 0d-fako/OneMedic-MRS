@@ -3,10 +3,15 @@ package com.onemedic.onemedic.controller;
 
 import com.onemedic.onemedic.model.Person;
 import com.onemedic.onemedic.services.PersonService;
+import groovy.cli.UnparsedField;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.UUID;
+
+
+@RequestMapping("api/v1/person")
 @RestController
 public class PersonController {
     private final PersonService personService;
@@ -18,7 +23,19 @@ public class PersonController {
 
 
     @PostMapping
-    public void addPerson(Person person) {
+    public void addPerson(@RequestBody Person person) {
         personService.addPerson(person);
+    }
+
+
+    @GetMapping
+    public List<Person> getAllPersons() {
+        return personService.getAllPersons();
+    }
+
+    @GetMapping(path="{id}")
+    public Person getPersonById(@PathVariable("id") UUID id) {
+        return personService.getPersonById(id)
+                .orElse(null);
     }
 }

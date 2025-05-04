@@ -1,20 +1,27 @@
 package com.onemedic.onemedic.model;
 
-import lombok.Getter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 import java.util.UUID;
 
-@Getter
+
 public class Person {
     private final UUID id;
+
     private final String name;
 
 
-    public Person(UUID id, String name) {
+    public Person(@JsonProperty("id") UUID id, @JsonProperty("name") String name) {
         this.id = id;
         this.name = name;
 
     }
+    public String getName(){
+        return name;
+    }
 
-
+    public Object getId() {
+        return id;
+    }
 }
