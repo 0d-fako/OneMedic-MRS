@@ -1,7 +1,7 @@
 package com.onemedic.onemedic.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import javax.validation.constraints.NotNull;
 
 import java.util.UUID;
 
@@ -9,7 +9,7 @@ import java.util.UUID;
 public class Person {
     private final UUID id;
 
-    @NotBlank
+    @NotNull
     private final String name;
 
 
